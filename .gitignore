@@ -1,0 +1,25 @@
+# Node
+node_modules/
+package-lock.json
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 输出文件
+output/
+work/*.png
+work/*.md
+!work/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

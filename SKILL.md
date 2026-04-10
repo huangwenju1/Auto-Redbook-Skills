@@ -100,6 +100,36 @@ python scripts/publish_xhs.py --title "笔记标题" --desc "笔记描述" \
 
 > **默认以「仅自己可见」发布**，加 `--public` 参数才会公开。
 
+> ⚠️ **重要**：如果 publish_xhs.py 报 `external_sign` 错误，使用修复版：
+
+```bash
+python scripts/publish_v3.py --title "笔记标题" --desc "笔记描述" \
+  --images cover.png card_1.png card_2.png --public
+```
+
+---
+
+### 第五步：一键发布（从 CSV）
+
+从 CSV 文件中找到最高点赞文章，自动生成图片并发布：
+
+```bash
+# 基本用法
+python scripts/quick_publish.py --csv 路径/to/文案.csv
+
+# 指定输出目录
+python scripts/quick_publish.py --csv 路径/to/文案.csv --output ./output
+
+# 仅生成图片，不发布
+python scripts/quick_publish.py --csv 路径/to/文案.csv --no-publish
+
+# 使用已有图片发布
+python scripts/quick_publish.py --csv 路径/to/文案.csv --images ./img/*.png --private
+
+# 公开发布
+python scripts/quick_publish.py --csv 路径/to/文案.csv --public
+```
+
 ---
 
 ## 技能资源
@@ -107,7 +137,9 @@ python scripts/publish_xhs.py --title "笔记标题" --desc "笔记描述" \
 ### 脚本
 - `scripts/render_xhs.py` — 渲染脚本（主推，8 主题 + 4 分页模式）
 - `scripts/render_xhs_v2.py` — 渲染脚本 V2（备用，7 种渐变色彩风格）
-- `scripts/publish_xhs.py` — 发布脚本
+- `scripts/publish_xhs.py` — 发布脚本（可能报签名错误）
+- `scripts/publish_v3.py` — 发布脚本（修复版）
+- `scripts/quick_publish.py` — 一键发布脚本（从 CSV）
 
 ### 模板与样式
 - `assets/cover.html` — 封面 HTML 模板
